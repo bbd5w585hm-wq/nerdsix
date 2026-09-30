@@ -349,3 +349,110 @@ textarea {
     text-align: left;
   }
 }
+
+
+.date-picker {
+  width: 100%;
+  margin-top: 8px;
+  border: 1px solid #ead8de;
+  border-radius: 18px;
+  background: #fffafb;
+  padding: 16px;
+}
+
+.date-picker-header {
+  display: grid;
+  grid-template-columns: 42px 1fr 42px;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.month-title {
+  color: #623f4d;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.month-arrow {
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 50%;
+  background: #f8e7ed;
+  color: #754b59;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.month-arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.weekday-row,
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.weekday-row {
+  margin-bottom: 6px;
+}
+
+.weekday-row span {
+  color: #a27f8b;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.calendar-grid button {
+  min-height: 42px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: #624550;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.calendar-grid button:hover {
+  background: #f7dfe6;
+}
+
+.calendar-grid button.selected {
+  background: #d77f98;
+  color: white;
+}
+
+.calendar-grid button.today {
+  box-shadow: inset 0 0 0 1px #e5b1bf;
+}
+
+.calendar-empty {
+  min-height: 42px;
+}
+
+.selected-date {
+  margin-top: 12px;
+  color: #9a6c7b;
+  font-size: 14px;
+  min-height: 20px;
+}
+
+@media (max-width: 600px) {
+  .date-picker {
+    padding: 12px 10px;
+  }
+
+  .calendar-grid button {
+    min-height: 40px;
+  }
+
+  .month-title {
+    font-size: 17px;
+  }
+}

@@ -8,9 +8,85 @@ const dateInput = document.getElementById("date");
 const timeInput = document.getElementById("time");
 const noteInput = document.getElementById("note");
 
+const calendarGrid = document.getElementById("calendarGrid");
+const monthTitle = document.getElementById("monthTitle");
+const prevMonth = document.getElementById("prevMonth");
+const nextMonth = document.getElementById("nextMonth");
+const selectedDateLabel = document.getElementById("selectedDate");
+
+const allowedMonths = [
+  { year: 2026, month: 10, name: "November 2026" },
+  { year: 2026, month: 11, name: "December 2026" }
+];
+
+let calendarMonthIndex = 0;
+
 let selectedLocation = "";
 let selectedActivity = "";
 let selectedExcitement = "";
+
+function renderCalendar() {
+  const current = allowedMonths[calendarMonthIndex];
+  const year = current.year;
+  const month = current.month;
+
+  monthTitle.textContent = current.name;
+  prevMonth.disabled = calendarMonthIndex === 0;
+  nextMonth.disabled = calendarMonthIndex === allowedMonths.length - 1;
+
+  calendarGrid.innerHTML = "";
+
+  const firstDay = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  for (let i = 0; i < firstDay; i++) {
+    const empty = document.createElement("div");
+    empty.className = "calendar-empty";
+    calendarGrid.appendChild(empty);
+  }
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = day;
+
+    const value =
+      `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+
+    if (dateInput.value === value) {
+      button.classList.add("selected");
+    }
+
+    button.addEventListener("click", () => {
+      dateInput.value = value;
+      selectedDateLabel.textContent =
+        new Date(year, month, day).toLocaleDateString("en-US", {
+          month: "long",
+          day: "numeric",
+          year: "numeric"
+        });
+      renderCalendar();
+    });
+
+    calendarGrid.appendChild(button);
+  }
+}
+
+prevMonth.addEventListener("click", () => {
+  if (calendarMonthIndex > 0) {
+    calendarMonthIndex--;
+    renderCalendar();
+  }
+});
+
+nextMonth.addEventListener("click", () => {
+  if (calendarMonthIndex < allowedMonths.length - 1) {
+    calendarMonthIndex++;
+    renderCalendar();
+  }
+});
+
+renderCalendar();
 
 function showPage(number) {
   pages.forEach((page, index) => {

@@ -34,8 +34,21 @@
         <p class="lead">When are you free for our little adventure?</p>
         <p class="small-note">November & December 2026 only 💕</p>
 
-        <label for="date">Date</label>
-        <input type="date" id="date" min="2026-11-01" max="2026-12-31" required>
+        <label>Date</label>
+        <div class="date-picker" id="datePicker">
+          <div class="date-picker-header">
+            <button type="button" class="month-arrow" id="prevMonth" aria-label="Previous month">‹</button>
+            <div class="month-title" id="monthTitle">November 2026</div>
+            <button type="button" class="month-arrow" id="nextMonth" aria-label="Next month">›</button>
+          </div>
+          <div class="weekday-row">
+            <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span>
+            <span>Thu</span><span>Fri</span><span>Sat</span>
+          </div>
+          <div class="calendar-grid" id="calendarGrid"></div>
+          <div class="selected-date" id="selectedDate">Please choose a date</div>
+        </div>
+        <input type="hidden" id="date" required>
 
         <label for="time">Time</label>
         <input type="time" id="time" required>
