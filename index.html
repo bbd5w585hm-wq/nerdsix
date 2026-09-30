@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Little Invitation from Six 💌</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="app">
+
+    <section class="page active" id="page1">
+      <div class="card intro-card">
+        <div class="envelope">💌</div>
+        <p class="eyebrow">A Little Invitation from Six</p>
+        <h1>Dr. Tommy,</h1>
+        <p class="lead">Six has something important to ask you...</p>
+        <h2>Would you like to go on a date with Six?</h2>
+
+        <div class="button-area" id="buttonArea">
+          <button class="yes-btn" id="yesBtn">Yes!!! 💕</button>
+          <button class="no-btn" id="noBtn">No</button>
+        </div>
+
+        <p class="hint">No pressure... but I already have a few ideas in mind. 👀</p>
+      </div>
+    </section>
+
+    <section class="page" id="page2">
+      <div class="card">
+        <p class="step">Step 1 of 4</p>
+        <h1>Pick a date</h1>
+        <p class="lead">When are you free for our little adventure?</p>
+        <p class="small-note">November & December 2026 only 💕</p>
+
+        <label for="date">Date</label>
+        <input type="date" id="date" min="2026-11-01" max="2026-12-31" required>
+
+        <label for="time">Time</label>
+        <input type="time" id="time" required>
+
+        <button class="primary-btn" id="dateNext">Continue →</button>
+      </div>
+    </section>
+
+    <section class="page" id="page3">
+      <div class="card">
+        <p class="step">Step 2 of 4</p>
+        <h1>Where should we go?</h1>
+        <p class="lead">Pick a place for our little adventure.</p>
+
+        <div class="choice-grid" id="locationChoices">
+          <button data-value="Taipei">Taipei</button>
+          <button data-value="New Taipei">New Taipei</button>
+          <button data-value="Keelung">Keelung</button>
+          <button data-value="Hsinchu">Hsinchu</button>
+          <button data-value="Taichung">Taichung</button>
+          <button data-value="Tainan">Tainan</button>
+          <button data-value="Kaohsiung">Kaohsiung</button>
+          <button data-value="Yilan">Yilan</button>
+          <button data-value="Hualien">Hualien</button>
+          <button data-value="Taitung">Taitung</button>
+        </div>
+
+        <button class="primary-btn" id="locationNext">Continue →</button>
+      </div>
+    </section>
+
+    <section class="page" id="page4">
+      <div class="card">
+        <p class="step">Step 3 of 4</p>
+        <h1>What's the vibe?</h1>
+        <p class="lead">What sounds fun to you?</p>
+
+        <div class="choice-grid activity-grid" id="activityChoices">
+          <button data-value="Dinner">Dinner 🍽️</button>
+          <button data-value="Coffee & Dessert">Coffee & Dessert ☕</button>
+          <button data-value="Drinks">Drinks 🍸</button>
+          <button data-value="Beach Day">Beach Day 🌊</button>
+          <button data-value="Movie Night">Movie Night 🎬</button>
+          <button data-value="Gaming">Gaming 🎮</button>
+          <button data-value="Little Road Trip">Little Road Trip 🚗</button>
+          <button data-value="Surprise Me">Surprise Me ✨</button>
+        </div>
+
+        <button class="primary-btn" id="activityNext">Continue →</button>
+      </div>
+    </section>
+
+    <section class="page" id="page5">
+      <div class="card">
+        <p class="step">Step 4 of 4</p>
+        <h1>One more thing...</h1>
+        <p class="lead">What are you most excited about?</p>
+
+        <div class="choice-grid" id="excitementChoices">
+          <button data-value="Spending time with Six">Spending time with Six 💕</button>
+          <button data-value="Exploring somewhere new">Exploring somewhere new 🗺️</button>
+          <button data-value="Eating something good">Eating something good 🍜</button>
+          <button data-value="Just hanging out together">Just hanging out together 🥰</button>
+          <button data-value="Whatever Six has planned">Whatever Six has planned 👀</button>
+        </div>
+
+        <label for="note">Anything Six should know? <span>(optional)</span></label>
+        <textarea id="note" placeholder="Any requests, ideas, or secret plans? 👀"></textarea>
+
+        <button class="primary-btn" id="submitBtn">Send it to Six 💌</button>
+        <p class="form-status" id="formStatus"></p>
+      </div>
+    </section>
+
+    <section class="page" id="page6">
+      <div class="card success-card">
+        <div class="success-heart">💕</div>
+        <p class="eyebrow">CONFIRMED!</p>
+        <h1>It's a date, Dr. Tommy!</h1>
+        <p class="lead">You picked the date. I'll take care of the rest. 💕</p>
+
+        <div class="summary">
+          <p><strong>Date</strong><span id="summaryDate"></span></p>
+          <p><strong>Time</strong><span id="summaryTime"></span></p>
+          <p><strong>Place</strong><span id="summaryLocation"></span></p>
+          <p><strong>Activity</strong><span id="summaryActivity"></span></p>
+          <p><strong>Excited about</strong><span id="summaryExcitement"></span></p>
+          <p><strong>Note</strong><span id="summaryNote"></span></p>
+        </div>
+
+        <p class="closing">Six can't wait to see you. 💕</p>
+        <p class="signature">See you soon, Dr. Tommy.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
